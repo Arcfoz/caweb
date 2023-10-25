@@ -4,7 +4,7 @@ const Skberkas = () => {
   return (
     <div className="container h-96" id="skberkas">
       <h1
-        className="flex justify-center text-3xl font-bold mb-12 md:text lg:text"
+        className="flex justify-center text-3xl font-bold mb-20"
         style={{ color: "#231f20" }}
       >
         ❯ Requirement ❮

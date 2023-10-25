@@ -22,7 +22,7 @@ const Partner = () => {
     { src: "/partner/Nanosatellite.png", href: "https://www.instagram.com/isatellitesociety/" },
     { src: "/partner/aicoms.png", href: "https://www.instagram.com/aicoms.telkomuniv/" },
     { src: "/partner/elektronika.jpg", href: "https://www.instagram.com/electronicslaboratory/" },
-    { src: "/partner/uPCI.png", href: "https://www.instagram.com/upcilab/" },
+    { src: "/partner/upci.png", href: "https://www.instagram.com/upcilab/" },
     { src: "/partner/mobcomm.png", href: "https://www.instagram.com/mobilecommlaboratory/" },
   ];
   return (
@@ -32,7 +32,7 @@ const Partner = () => {
           className="flex justify-center text-3xl font-bold mb-16 md:text lg:text"
           style={{ color: "#231f20" }}
         >
-         ❯ Our Partner ❮
+         ❯ Our Media Partner ❮
         </h1>
         <div className="md:hidden">
           <div className="flex flex-wrap ">

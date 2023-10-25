@@ -18,7 +18,7 @@ const calculateTimeRemaining = (countdown: number): Countdown => {
   return { days, hours, minutes, seconds };
 };
 
-const targetDateUTC = new Date("2023-10-29T23:59:59Z");
+const targetDateUTC = new Date("2023-10-28T11:59:59Z");
 const targetDateWIB = new Date(targetDateUTC.getTime() + 7 * 60 * 60 * 1000);
 
 const Video: React.FC = () => {
@@ -38,6 +38,7 @@ const Video: React.FC = () => {
       setCountdown((prevCountdown) =>
         prevCountdown > 0 ? prevCountdown - 1 : 0
       );
+      console.log(targetDateWIB)
     }, 1000);
 
     return () => clearInterval(countdownInterval);
