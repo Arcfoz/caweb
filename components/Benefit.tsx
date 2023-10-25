@@ -59,7 +59,7 @@ const Benefits = () => {
               <Card className="h-72 bg-white shadow-lg hover:shadow-xl rounded-lg">
                 <CardHeader className="bg-red-700 p-4 flex-row gap-4 rounded-t-lg">
                   <div>
-                    <Image src="/Knowledge.png" alt="knowledge" className="w-12" height={50} width={50} />
+                    <Image src="/knowledge.png" alt="knowledge" className="w-12" height={50} width={50} />
                   </div>
                   <h1 className="text-white text-[]16px font-semibold mt-2 mb-2">KNOWLEDGE</h1>
                 </CardHeader>
