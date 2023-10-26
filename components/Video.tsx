@@ -65,7 +65,7 @@ const Video: React.FC = () => {
     <div className="mt-5 md:mt-7">
       <div
         style={{
-          width: "57%",
+          width: "60%",
           margin: "2vh auto 0",
           borderRadius: "12px",
           overflow: "hidden",
@@ -106,7 +106,7 @@ const Video: React.FC = () => {
         </video>
       </div>
 
-      <div className="flex justify-center items-center mt-8 md:mt-4 lg:mt-3">
+      <div className="flex justify-center items-center mt-8 md:mt-4 lg:mt-4">
         <div className="rounded-lg p-5">
           <div className="grid grid-flow-col gap-5 md:gap-10 font-viga font-bold text-center auto-cols-max">
             <div
@@ -177,11 +177,17 @@ const Video: React.FC = () => {
         </div>
       </div>
 
-      <div className="flex flex-col items-center  mt-5">
-        <p className="font-regular text-center font-viga text-lg md:text-2xl lg:text-2xl" style={{ color: "#231f20" }}>
+      <div className="flex flex-col items-center mt-5">
+        <p
+          className="font-regular text-center font-viga text-lg md:text-2xl lg:text-2xl"
+          style={{ color: "#231f20" }}
+        >
           What are you still waiting for?
         </p>
-        <p className="font-regular text-center font-viga text-lg md:text-2xl lg:text-2xl mb-5" style={{ color: "#231f20" }}>
+        <p
+          className="font-regular text-center font-viga text-lg mb-5 md:text-2xl lg:text-2xl lg:mt-1"
+          style={{ color: "#231f20" }}
+        >
           Start Your Journey Now!
         </p>
         <div className="mt-5 md:scale-125 lg:scale-150 lg:mt-8">

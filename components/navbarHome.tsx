@@ -7,7 +7,6 @@ const slot = 1;
 
 const NavHome = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isDropdownOpen, setDropdownOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,11 +54,11 @@ const NavHome = () => {
               {/* Page content here */}
               <label
                 htmlFor="my-drawer"
-                className="btn btn-ghost drawer-button -ml-2 md:hidden"
+                className="btn btn-ghost drawer-button -ml-2 lg:hidden"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
+                  className="h-6 w-6 md:hidden"
                   style={{ color: "#231f20" }}
                   fill="none"
                   viewBox="0 0 24 24"
@@ -72,14 +71,9 @@ const NavHome = () => {
                     d="M4 6h16M4 12h8m-8 6h16"
                   />
                 </svg>
-              </label>
-              <label
-                htmlFor="my-drawer"
-                className="hidden md:block btn btn-ghost drawer-button"
-              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-9 w-9 mt-1"
+                  className="hidden md:block h-9 w-9"
                   style={{ color: "#231f20" }}
                   fill="none"
                   viewBox="0 0 24 24"
@@ -101,15 +95,14 @@ const NavHome = () => {
                 className="drawer-overlay"
               ></label>
               <ul
-                className="menu p-4 w-44 min-h-full text-base-content md:w-72"
+                className="menu p-4 space-y-3 w-52 min-h-full text-base-content md:w-80 md:space-y-5"
                 style={{
                   background: "#f4f4f4",
                   color: "#231f20",
-                  border: "1px solid",
                 }}
               >
                 {/* Sidebar content here */}
-                <li className="font-plus-jakarta-sans font-semibold">
+                <li className="font-plus-jakarta-sans font-semibold text-[17px] md:text-[21px]">
                   <a
                     onClick={handleDaftarClick}
                     style={{
@@ -121,7 +114,7 @@ const NavHome = () => {
                     Register
                   </a>
                 </li>
-                <li className="font-plus-jakarta-sans font-semibold">
+                <li className="font-plus-jakarta-sans font-semibold text-[17px] md:text-[21px]">
                   <ScrollLink
                     to="about"
                     smooth={true}
@@ -131,7 +124,7 @@ const NavHome = () => {
                     <button>About</button>
                   </ScrollLink>
                 </li>
-                <li className="font-plus-jakarta-sans font-semibold">
+                <li className="font-plus-jakarta-sans font-semibold text-[17px] md:text-[21px]">
                   <ScrollLink
                     to="benefit"
                     smooth={true}
@@ -141,7 +134,7 @@ const NavHome = () => {
                     <button>Benefit</button>
                   </ScrollLink>
                 </li>
-                <li className="font-plus-jakarta-sans font-semibold">
+                <li className="font-plus-jakarta-sans font-semibold text-[17px] md:text-[21px]">
                   <ScrollLink
                     to="course"
                     smooth={true}
@@ -151,7 +144,7 @@ const NavHome = () => {
                     <button>Course</button>
                   </ScrollLink>
                 </li>
-                <li className="font-plus-jakarta-sans font-semibold md:hidden">
+                <li className="font-plus-jakarta-sans font-semibold text-[17px] md:text-[21px] md:hidden">
                   <ScrollLink
                     to="daftar"
                     smooth={true}
@@ -161,7 +154,7 @@ const NavHome = () => {
                     <button>Requirement</button>
                   </ScrollLink>
                 </li>
-                <li className="hidden md:block font-plus-jakarta-sans font-semibold">
+                <li className="hidden md:block font-plus-jakarta-sans font-semibold text-[17px] md:text-[21px]">
                   <ScrollLink
                     to="skberkas"
                     smooth={true}
@@ -171,7 +164,7 @@ const NavHome = () => {
                     <button>Requirement</button>
                   </ScrollLink>
                 </li>
-                <li className="font-plus-jakarta-sans font-semibold">
+                <li className="font-plus-jakarta-sans font-semibold text-[17px] md:text-[21px]">
                   <ScrollLink
                     to="partner"
                     smooth={true}
@@ -199,7 +192,7 @@ const NavHome = () => {
             style={{ color: "#231f20" }}
           >
             <ul className="flex space-x-6">
-              <li className="font-plus-jakarta-sans font-semibold">
+              <li className="font-plus-jakarta-sans font-semibold text-[17px] md:text-[21px]">
                 <ScrollLink
                   to="about"
                   smooth={true}
@@ -209,7 +202,7 @@ const NavHome = () => {
                   <button>About</button>
                 </ScrollLink>
               </li>
-              <li className="font-plus-jakarta-sans font-semibold">
+              <li className="font-plus-jakarta-sans font-semibold text-[17px] md:text-[21px]">
                 <ScrollLink
                   to="benefit"
                   smooth={true}
@@ -219,7 +212,7 @@ const NavHome = () => {
                   <button>Benefit</button>
                 </ScrollLink>
               </li>
-              <li className="font-plus-jakarta-sans font-semibold">
+              <li className="font-plus-jakarta-sans font-semibold text-[17px] md:text-[21px]">
                 <ScrollLink
                   to="course"
                   smooth={true}
@@ -229,7 +222,7 @@ const NavHome = () => {
                   <button>Course</button>
                 </ScrollLink>
               </li>
-              <li className="font-plus-jakarta-sans font-semibold md:hidden">
+              <li className="font-plus-jakarta-sans font-semibold text-[17px] md:text-[21px] md:hidden">
                 <ScrollLink
                   to="daftar"
                   smooth={true}
@@ -239,7 +232,7 @@ const NavHome = () => {
                   <button>Requirement</button>
                 </ScrollLink>
               </li>
-              <li className="hidden md:block font-plus-jakarta-sans font-semibold">
+              <li className="hidden md:block font-plus-jakarta-sans font-semibold text-[17px] md:text-[21px]">
                 <ScrollLink
                   to="skberkas"
                   smooth={true}
@@ -249,7 +242,7 @@ const NavHome = () => {
                   <button>Requirement</button>
                 </ScrollLink>
               </li>
-              <li className="font-plus-jakarta-sans font-semibold">
+              <li className="font-plus-jakarta-sans font-semibold text-[17px] md:text-[21px]">
                 <ScrollLink
                   to="partner"
                   smooth={true}
