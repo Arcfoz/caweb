@@ -2,17 +2,17 @@
 import { createContext, useContext, Dispatch, SetStateAction, useState } from "react";
 
 interface ContextProps {
-  timeleft: number;
-  setTimeLeft: Dispatch<SetStateAction<number>>;
+  timeleft: string;
+  setTimeLeft: Dispatch<SetStateAction<string>>;
 }
 
 const GlobalContext = createContext<ContextProps>({
-  timeleft: 0,
+  timeleft: "",
   setTimeLeft: () => {},
 });
 
 export const GlobalContextProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [timeleft, setTimeLeft] = useState(80);
+  const [timeleft, setTimeLeft] = useState("");
 
   return <GlobalContext.Provider value={{ timeleft, setTimeLeft }}>{children}</GlobalContext.Provider>;
 };

@@ -1,15 +1,20 @@
+import { useGlobalContext } from "@/app/context/timeleft";
 import React from "react";
 
 const slot = 1;
 
 const RegistrationButton = () => {
+  const { timeleft } = useGlobalContext();
+
   const handleDaftarClick = () => {
-    if (slot == 1) {
+    if (timeleft == "0:00:00:00") {
+      window.location.href = "/fullform";
+
       // Allow registration if there are available slots
-      window.open("https://bit.ly/CYBERACADEMY2324", "_blank");
+    } else if (timeleft == "") {
     } else {
       // Show a pop-up notification if the maximum limit is reached
-      window.location.href = "/fullform";
+      window.open("https://bit.ly/CYBERACADEMY2324", "_blank");
     }
   };
 
@@ -24,13 +29,15 @@ const RegistrationButton = () => {
         boxShadow: "0px 0px 4px 2px rgba(0, 0, 0, 0.7)", // Larger sharp shadow effect
       }}
     >
-      {slot == 1 ? (
+      {timeleft == "" ? (
+        "Loading"
+      ) : timeleft == "0:00:00:00" ? (
+        "Registration Closed"
+      ) : (
         <>
           Register
           <img src="./paperPlane.png" alt="telegram" className="w-6" />
         </>
-      ) : (
-        "Registration Closed"
       )}
     </button>
   );

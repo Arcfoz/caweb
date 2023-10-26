@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState, Suspense } from "react";
 import RegistrationButton from "./ui/registration-button";
+import { useGlobalContext } from "@/app/context/timeleft";
 
 interface Countdown {
   days: number;
@@ -8,6 +9,8 @@ interface Countdown {
   minutes: number;
   seconds: number;
 }
+
+var time = "";
 
 const calculateTimeRemaining = (countdown: number): Countdown => {
   const days = Math.floor(countdown / (3600 * 24));
@@ -18,14 +21,14 @@ const calculateTimeRemaining = (countdown: number): Countdown => {
   return { days, hours, minutes, seconds };
 };
 
-const targetDateUTC = new Date("2023-10-28T11:59:59Z");
-const targetDateWIB = new Date(targetDateUTC.getTime() + 7 * 60 * 60 * 1000);
+const targetDateUTC = new Date("2023-10-29T11:59:59Z");
+const options = { timeZone: "Asia/Jakarta" };
+const targetDateWIB = new Date(targetDateUTC.toLocaleString("en-US", options));
 
 const Video: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [countdown, setCountdown] = useState<number>(
-    Math.floor((targetDateWIB.getTime() - Date.now()) / 1000)
-  );
+  const [countdown, setCountdown] = useState<number>(Math.floor((targetDateWIB.getTime() - Date.now()) / 1000));
+  const { setTimeLeft } = useGlobalContext();
 
   useEffect(() => {
     if (videoRef.current) {
@@ -35,10 +38,17 @@ const Video: React.FC = () => {
 
   useEffect(() => {
     const countdownInterval = setInterval(() => {
-      setCountdown((prevCountdown) =>
-        prevCountdown > 0 ? prevCountdown - 1 : 0
-      );
-      console.log(targetDateWIB);
+      setCountdown((prevCountdown) => {
+        const newCountdown = prevCountdown > 0 ? prevCountdown - 1 : 0;
+        const countdownDate = new Date(newCountdown * 1000);
+        const days = Math.floor(newCountdown / (3600 * 24));
+        const hours = String(countdownDate.getUTCHours()).padStart(2, "0");
+        const minutes = String(countdownDate.getUTCMinutes()).padStart(2, "0");
+        const seconds = String(countdownDate.getUTCSeconds()).padStart(2, "0");
+        time = `${days}:${hours}:${minutes}:${seconds}`;
+        setTimeLeft(time);
+        return newCountdown;
+      });
     }, 1000);
 
     return () => clearInterval(countdownInterval);
@@ -63,14 +73,7 @@ const Video: React.FC = () => {
         }}
         className="hidden lg:block"
       >
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          ref={videoRef}
-          style={{ width: "100%", borderRadius: "12px" }}
-        >
+        <video autoPlay loop muted playsInline ref={videoRef} style={{ width: "100%", borderRadius: "12px" }}>
           <source src="/teaser.mp4" type="video/mp4" />
         </video>
       </div>
@@ -84,14 +87,7 @@ const Video: React.FC = () => {
         }}
         className="hidden md:block lg:hidden"
       >
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          ref={videoRef}
-          style={{ width: "100%", borderRadius: "12px" }}
-        >
+        <video autoPlay loop muted playsInline ref={videoRef} style={{ width: "100%", borderRadius: "12px" }}>
           <source src="/teaser.mp4" type="video/mp4" />
         </video>
       </div>
@@ -105,14 +101,7 @@ const Video: React.FC = () => {
         }}
         className="md:hidden"
       >
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          ref={videoRef}
-          style={{ width: "100%", borderRadius: "12px" }}
-        >
+        <video autoPlay loop muted playsInline ref={videoRef} style={{ width: "100%", borderRadius: "12px" }}>
           <source src="/teaser.mp4" type="video/mp4" />
         </video>
       </div>
@@ -189,16 +178,10 @@ const Video: React.FC = () => {
       </div>
 
       <div className="flex flex-col items-center  mt-5">
-        <p
-          className="font-regular text-center font-viga text-lg md:text-2xl lg:text-2xl"
-          style={{ color: "#231f20" }}
-        >
+        <p className="font-regular text-center font-viga text-lg md:text-2xl lg:text-2xl" style={{ color: "#231f20" }}>
           What are you still waiting for?
         </p>
-        <p
-          className="font-regular text-center font-viga text-lg md:text-2xl lg:text-2xl mb-5"
-          style={{ color: "#231f20" }}
-        >
+        <p className="font-regular text-center font-viga text-lg md:text-2xl lg:text-2xl mb-5" style={{ color: "#231f20" }}>
           Start Your Journey Now!
         </p>
         <div className="mt-5 md:scale-125 lg:scale-150 lg:mt-8">
