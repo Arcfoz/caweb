@@ -4,7 +4,7 @@ const Course = () => {
   return (
     <div className="container" id="course">
       <h1
-        className="flex justify-center text-2xl font-bold mb-16 md:text-3xl md:mb-20"
+        className="flex justify-center text-2xl font-viga font-regular mb-16 md:text-3xl md:mb-20"
         style={{ color: "#231f20" }}
       >
        What You Will learn ??
@@ -17,7 +17,7 @@ const Course = () => {
             alt="linux"
           />
           <h1
-            className="text-center mt-4 font-semibold text-[24px]"
+            className="text-center mt-4 font-viga font-regular text-[24px]"
             style={{ color: "#231f20" }}
           >
             Linux
@@ -30,7 +30,7 @@ const Course = () => {
             alt="linux"
           />
           <h1
-            className="text-center mt-4 font-semibold text-[24px]"
+            className="text-center mt-4 font-viga font-regular text-[24px]"
             style={{ color: "#231f20" }}
           >
             IOT
@@ -43,7 +43,7 @@ const Course = () => {
             alt="linux"
           />
           <h1
-            className="text-center mt-4 font-semibold text-[24px]"
+            className="text-center mt-4 font-viga font-regular text-[24px]"
             style={{ color: "#231f20" }}
           >
             WebDev

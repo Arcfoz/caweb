@@ -38,7 +38,7 @@ const Video: React.FC = () => {
       setCountdown((prevCountdown) =>
         prevCountdown > 0 ? prevCountdown - 1 : 0
       );
-      console.log(targetDateWIB)
+      console.log(targetDateWIB);
     }, 1000);
 
     return () => clearInterval(countdownInterval);
@@ -52,10 +52,10 @@ const Video: React.FC = () => {
   const secondsstyle = { "--value": seconds } as React.CSSProperties;
 
   return (
-    <div>
+    <div className="mt-5 md:mt-7">
       <div
         style={{
-          width: "60%",
+          width: "57%",
           margin: "2vh auto 0",
           borderRadius: "12px",
           overflow: "hidden",
@@ -76,13 +76,34 @@ const Video: React.FC = () => {
       </div>
       <div
         style={{
-          width: "82%",
+          width: "89%",
           margin: "2vh auto 0",
           borderRadius: "12px",
           overflow: "hidden",
           boxShadow: "0 0 10px rgba(0, 0, 0, 0.3)",
         }}
-        className="lg:hidden"
+        className="hidden md:block lg:hidden"
+      >
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          ref={videoRef}
+          style={{ width: "100%", borderRadius: "12px" }}
+        >
+          <source src="/teaser.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div
+        style={{
+          width: "85%",
+          margin: "2vh auto 0",
+          borderRadius: "12px",
+          overflow: "hidden",
+          boxShadow: "0 0 10px rgba(0, 0, 0, 0.3)",
+        }}
+        className="md:hidden"
       >
         <video
           autoPlay
@@ -96,73 +117,92 @@ const Video: React.FC = () => {
         </video>
       </div>
 
-      <div className="flex justify-center items-center mt-5">
+      <div className="flex justify-center items-center mt-8 md:mt-4 lg:mt-3">
         <div className="rounded-lg p-5">
-          <div className="grid grid-flow-col gap-5 text-center auto-cols-max">
+          <div className="grid grid-flow-col gap-5 md:gap-10 font-viga font-bold text-center auto-cols-max">
             <div
-              className="flex flex-col w-18 md:w-24 p-3 gap-3 text-center items-center justify-center font-mono bg-neutral rounded-box text-neutral-content"
-              style={{ background: "#f8cdce", color: "#231f20" }}
+              className="flex flex-col w-14 md:w-24 p-3 gap-2 md:gap-5 lg:gap-4 text-[13px] md:text-[16.5px] lg:text-[18px] font-viga font-regular text-center items-center justify-center bg-neutral rounded-xl border border-black text-neutral-content"
+              style={{
+                color: "#231f20",
+                fontSmooth: "1px solid",
+                backgroundColor: "#f4f4f4",
+                boxShadow: "0px 0px 4px 2px rgba(0, 0, 0, 0.4)", // Larger sharp shadow effect
+              }}
             >
-              <span className="countdown font-mono text-5xl">
+              <span className="countdown text-2xl font-mono md:text-4xl lg:text-5xl">
                 <Suspense>
                   <span id="counterElement" style={daysstyle}></span>
                 </Suspense>
               </span>
-              days
+              DAYS
             </div>
             <div
-              className="flex flex-col w-18 md:w-24 p-3 gap-3 text-center items-center justify-center font-mono bg-neutral rounded-box text-neutral-content"
-              style={{ background: "#f8cdce", color: "#231f20" }}
+              className="flex flex-col w-14 md:w-24 p-3 gap-2 md:gap-5 lg:gap-4 text-[13px] md:text-[16.5px] lg:text-[18px] font-viga font-regular text-center items-center justify-center bg-neutral rounded-xl border border-black text-neutral-content"
+              style={{
+                color: "#231f20",
+                fontSmooth: "1px solid",
+                backgroundColor: "#f4f4f4",
+                boxShadow: "0px 0px 4px 2px rgba(0, 0, 0, 0.4)", // Larger sharp shadow effect
+              }}
             >
-              <span className="countdown font-mono text-5xl">
+              <span className="countdown text-2xl font-mono md:text-4xl lg:text-5xl">
                 <Suspense>
                   <span id="counterElement" style={hoursstyle}></span>
                 </Suspense>
               </span>
-              hours
+              HOURS
             </div>
             <div
-              className="flex flex-col w-18 md:w-24 p-3 gap-3 text-center items-center justify-center font-mono bg-neutral rounded-box text-neutral-content"
-              style={{ background: "#f8cdce", color: "#231f20" }}
+              className="flex flex-col w-14 md:w-24 p-3 gap-2 md:gap-5 lg:gap-4 text-[13px] md:text-[16.5px] lg:text-[18px] font-viga font-regular text-center items-center justify-center bg-neutral rounded-xl border border-black text-neutral-content"
+              style={{
+                color: "#231f20",
+                fontSmooth: "1px solid",
+                backgroundColor: "#f4f4f4",
+                boxShadow: "0px 0px 4px 2px rgba(0, 0, 0, 0.4)", // Larger sharp shadow effect
+              }}
             >
-              <span className="countdown font-mono text-5xl">
+              <span className="countdown text-2xl font-mono md:text-4xl lg:text-5xl">
                 <Suspense>
                   <span id="counterElement" style={minutesstyle}></span>
                 </Suspense>
               </span>
-              min
+              MIN
             </div>
             <div
-              className="flex flex-col w-18 md:w-24 p-3 gap-3 text-center items-center justify-center font-mono bg-neutral rounded-box text-neutral-content"
-              style={{ background: "#f8cdce", color: "#231f20" }}
+              className="flex flex-col w-14 md:w-24 p-3 gap-2 md:gap-5 lg:gap-4 text-[13px] md:text-[16.5px] lg:text-[18px] font-viga font-regular text-center items-center justify-center bg-neutral rounded-xl border border-black text-neutral-content"
+              style={{
+                color: "#231f20",
+                fontSmooth: "1px solid",
+                backgroundColor: "#f4f4f4",
+                boxShadow: "0px 0px 4px 2px rgba(0, 0, 0, 0.4)", // Larger sharp shadow effect
+              }}
             >
-              <span className="countdown font-mono text-5xl">
+              <span className="countdown text-2xl font-mono md:text-4xl lg:text-5xl">
                 <Suspense>
                   <span id="counterElement" style={secondsstyle}></span>
                 </Suspense>
               </span>
-              sec
+              SEC
             </div>
           </div>
         </div>
       </div>
 
-      <div className="flex flex-col items-center md:mt-7">
+      <div className="flex flex-col items-center  mt-5">
         <p
-          className="text-center text-lg md:text-xl lg:text-2xl"
+          className="font-regular text-center font-viga text-lg md:text-2xl lg:text-2xl"
           style={{ color: "#231f20" }}
         >
           What are you still waiting for?
         </p>
         <p
-          className="text-center text-lg md:text-xl lg:text-2xl mb-5"
+          className="font-regular text-center font-viga text-lg md:text-2xl lg:text-2xl mb-5"
           style={{ color: "#231f20" }}
         >
           Start Your Journey Now!
         </p>
-        <div className="lg:scale-150 lg:mt-5">
-        <RegistrationButton />
-
+        <div className="mt-5 md:scale-125 lg:scale-150 lg:mt-8">
+          <RegistrationButton />
         </div>
       </div>
     </div>

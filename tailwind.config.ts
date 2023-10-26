@@ -3,10 +3,10 @@
 module.exports = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
   ],
   theme: {
     container: {
@@ -18,12 +18,15 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        'forest-road': ['f Forest Road', 'sans-serif'],
+        "Aref-Ruqaa-Ink": ["Aref Ruqaa Ink", "serif"],
+        viga: ["Viga", "sans-serif"],
+        "plus-jakarta-sans": ["Plus Jakarta Sans", "sans-serif"],
       },
+
       letterSpacing: {
-        '1': '0.5em',
-        '2': '0.3em',
-        '3': '0.1em',
+        "1": "0.5em",
+        "2": "0.3em",
+        "3": "0.1em",
         // Add more classes and values as needed
       },
       colors: {
@@ -67,6 +70,10 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+        marquee: {
+          "0%": { transform: "translateX(100vw)" },
+          "100%": { transform: "translateX(-100vw)" },
+        },
         "accordion-down": {
           from: { height: 0 },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -75,22 +82,15 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: 0 },
         },
-        "running-board": {
-          "0%": { transform: "translateX(-100%)", opacity: 0 },
-          "20%": { transform: "translateX(0)", opacity: 1 },
-          "80%": { transform: "translateX(0)", opacity: 1 },
-          "100%": { transform: "translateX(100%)", opacity: 0 },
-        },
       },
       animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-        "running-board": "running-board 5s linear infinite",
+        marquee: "marquee 11s linear infinite",
+        "accordion-down": "accordion-down 0.5s ease-out",
+        "accordion-up": "accordion-up 0.5s ease-out",
       },
+      overflow: ['hidden'],
+      
     },
   },
-  plugins: [
-    require("tailwindcss-animate"),
-    require("daisyui")
-  ],
+  plugins: [require("tailwindcss-animate"), require("daisyui")],
 };

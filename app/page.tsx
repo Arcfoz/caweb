@@ -16,16 +16,16 @@ export default function Home() {
       <div className="sticky top-0 z-50">
         <NavHome />
       </div>
-      <div className="mb-32">
+      <div className="mb-16 md:mb-32 lg:mb-9">
         <VideoPlayer />
       </div>
-      <div className="mb-32">
+      <div className="mb-12 md:mb-7">
         <About />
       </div>
-      <div className="mb-32">
+      <div className="mb-40 md:mb-72 lg:mb-44">
         <Benefit />
       </div>
-      <div className="mb-32 md:mt-20 md:mb-44">
+      <div className="mb-32 md:mb-80 lg:mb-64">
         <Course />
       </div>
       <div className=" md:hidden">
@@ -34,7 +34,7 @@ export default function Home() {
       <div className=" md:hidden">
         <Berkas />
       </div>
-      <div className="hidden md:block md:mb-52 md:mt-20">
+      <div className="hidden md:block md:mb-80">
         <Skberkas />
       </div>
       <div className="mb-32 mt-32">

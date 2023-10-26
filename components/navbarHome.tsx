@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import RegistrationButton from "./ui/registration-button";
 
+const slot = 1;
+
 const NavHome = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDropdownOpen, setDropdownOpen] = useState(false);
@@ -19,12 +21,18 @@ const NavHome = () => {
     };
   }, []);
 
-  const toggleDropdown = () => {
-    setDropdownOpen(!isDropdownOpen);
-  };
   const navbarStyle = {
     background: `#f4f4f4`,
     boxShadow: isScrolled ? "0 4px 6px rgba(0, 0, 0, 0.1)" : "none",
+  };
+  const handleDaftarClick = () => {
+    if (slot == 1) {
+      // Allow registration if there are available slots
+      window.open("https://bit.ly/CYBERACADEMY2324", "_blank");
+    } else {
+      // Show a pop-up notification if the maximum limit is reached
+      window.location.href = "/fullform";
+    }
   };
 
   return (
@@ -33,7 +41,7 @@ const NavHome = () => {
         <div className="navbar-start md:ml-2 lg:ml-5 ">
           <div className="hidden lg:flex flex-row items-center">
             <a
-              className="text-[22px] font-forest-road font-bold mt-1 lg:text-[28px]"
+              className="font-viga font-bold mt-1 text-[28px]"
               style={{ color: "#ba2025" }}
               href="/"
               rel="noopener noreferrer"
@@ -47,12 +55,32 @@ const NavHome = () => {
               {/* Page content here */}
               <label
                 htmlFor="my-drawer"
-                className="btn btn-ghost drawer-button"
+                className="btn btn-ghost drawer-button -ml-2 md:hidden"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-7 w-7"
-                  style={{ color: "#ba2025" }}
+                  className="h-6 w-6"
+                  style={{ color: "#231f20" }}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h8m-8 6h16"
+                  />
+                </svg>
+              </label>
+              <label
+                htmlFor="my-drawer"
+                className="hidden md:block btn btn-ghost drawer-button"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-9 w-9 mt-1"
+                  style={{ color: "#231f20" }}
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -81,7 +109,19 @@ const NavHome = () => {
                 }}
               >
                 {/* Sidebar content here */}
-                <li>
+                <li className="font-plus-jakarta-sans font-semibold">
+                  <a
+                    onClick={handleDaftarClick}
+                    style={{
+                      fontSmooth: "true",
+                      offset: "-100",
+                      animationDuration: "500",
+                    }}
+                  >
+                    Register
+                  </a>
+                </li>
+                <li className="font-plus-jakarta-sans font-semibold">
                   <ScrollLink
                     to="about"
                     smooth={true}
@@ -91,7 +131,7 @@ const NavHome = () => {
                     <button>About</button>
                   </ScrollLink>
                 </li>
-                <li>
+                <li className="font-plus-jakarta-sans font-semibold">
                   <ScrollLink
                     to="benefit"
                     smooth={true}
@@ -101,7 +141,7 @@ const NavHome = () => {
                     <button>Benefit</button>
                   </ScrollLink>
                 </li>
-                <li>
+                <li className="font-plus-jakarta-sans font-semibold">
                   <ScrollLink
                     to="course"
                     smooth={true}
@@ -111,7 +151,7 @@ const NavHome = () => {
                     <button>Course</button>
                   </ScrollLink>
                 </li>
-                <li className="md:hidden">
+                <li className="font-plus-jakarta-sans font-semibold md:hidden">
                   <ScrollLink
                     to="daftar"
                     smooth={true}
@@ -121,7 +161,7 @@ const NavHome = () => {
                     <button>Requirement</button>
                   </ScrollLink>
                 </li>
-                <li className="hidden md:block">
+                <li className="hidden md:block font-plus-jakarta-sans font-semibold">
                   <ScrollLink
                     to="skberkas"
                     smooth={true}
@@ -131,7 +171,7 @@ const NavHome = () => {
                     <button>Requirement</button>
                   </ScrollLink>
                 </li>
-                <li>
+                <li className="font-plus-jakarta-sans font-semibold">
                   <ScrollLink
                     to="partner"
                     smooth={true}
@@ -147,7 +187,7 @@ const NavHome = () => {
         </div>
         <div className="navbar-center">
           <a
-            className="text-[23px] font-forest-road font-bold mt-1 md:text-[27px] lg:hidden"
+            className="text-[23px] font-viga font-bold md:text-[28px] lg:hidden"
             style={{ color: "#ba2025" }}
             href="/"
             rel="noopener noreferrer"
@@ -159,7 +199,7 @@ const NavHome = () => {
             style={{ color: "#231f20" }}
           >
             <ul className="flex space-x-6">
-              <li>
+              <li className="font-plus-jakarta-sans font-semibold">
                 <ScrollLink
                   to="about"
                   smooth={true}
@@ -169,7 +209,7 @@ const NavHome = () => {
                   <button>About</button>
                 </ScrollLink>
               </li>
-              <li>
+              <li className="font-plus-jakarta-sans font-semibold">
                 <ScrollLink
                   to="benefit"
                   smooth={true}
@@ -179,7 +219,7 @@ const NavHome = () => {
                   <button>Benefit</button>
                 </ScrollLink>
               </li>
-              <li>
+              <li className="font-plus-jakarta-sans font-semibold">
                 <ScrollLink
                   to="course"
                   smooth={true}
@@ -189,7 +229,7 @@ const NavHome = () => {
                   <button>Course</button>
                 </ScrollLink>
               </li>
-              <li className="md:hidden">
+              <li className="font-plus-jakarta-sans font-semibold md:hidden">
                 <ScrollLink
                   to="daftar"
                   smooth={true}
@@ -199,7 +239,7 @@ const NavHome = () => {
                   <button>Requirement</button>
                 </ScrollLink>
               </li>
-              <li className="hidden md:block">
+              <li className="hidden md:block font-plus-jakarta-sans font-semibold">
                 <ScrollLink
                   to="skberkas"
                   smooth={true}
@@ -209,7 +249,7 @@ const NavHome = () => {
                   <button>Requirement</button>
                 </ScrollLink>
               </li>
-              <li>
+              <li className="font-plus-jakarta-sans font-semibold">
                 <ScrollLink
                   to="partner"
                   smooth={true}
@@ -226,7 +266,7 @@ const NavHome = () => {
           className="navbar-end md:mr-0 lg:mr-5 "
           style={{ color: "#231f20" }}
         >
-          <div className="scale-75 md:scale-80 lg:scale-100">
+          <div className="hidden lg:block lg:scale-100">
             <RegistrationButton />
           </div>
         </div>

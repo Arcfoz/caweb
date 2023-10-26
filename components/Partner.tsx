@@ -29,7 +29,7 @@ const Partner = () => {
     <div className={styles.partnerArea} id="partner">
       <div className="container mx-auto sm:px-4">
         <h1
-          className="flex justify-center text-3xl font-bold mb-16 md:text lg:text"
+          className="flex justify-center text-3xl font-viga font-regular mb-16 md:text lg:text"
           style={{ color: "#231f20" }}
         >
          ❯ Our Media Partner ❮
