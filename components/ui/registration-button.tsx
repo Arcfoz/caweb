@@ -6,10 +6,12 @@ const slot = 1;
 const RegistrationButton = () => {
   const { timeleft } = useGlobalContext();
 
-  const handleDaftarClick = () => {
-    if (timeleft == "0:00:00:00") {
-      window.location.href = "/fullform";
+  const timeArray = timeleft.split(":");
+  const [hours, minutes, seconds, milliseconds] = timeArray.map(Number);
 
+  const handleDaftarClick = () => {
+    if (hours < 0 || minutes < 0 || seconds < 0 || milliseconds < 0) {
+      window.location.href = "/fullform";
       // Allow registration if there are available slots
     } else if (timeleft == "") {
     } else {
@@ -31,7 +33,7 @@ const RegistrationButton = () => {
     >
       {timeleft == "" ? (
         "Loading"
-      ) : timeleft == "0:00:00:00" ? (
+      ) : hours < 0 || minutes < 0 || seconds < 0 || milliseconds < 0 ? (
         "Registration Closed"
       ) : (
         <>

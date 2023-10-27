@@ -23,26 +23,20 @@ const targetDateUTC = new Date("2023-10-29T11:59:59Z");
 const targetDateWIB = new Date(targetDateUTC.getTime() + 7 * 60 * 60 * 1000);
 
 const Timer = () => {
-  const [countdown, setCountdown] = useState<number>(Math.floor((targetDateWIB.getTime() - Date.now()) / 1000));
+  const [countdown, setCountdown] = useState<number>(0);
   const { setTimeLeft } = useGlobalContext();
 
   useEffect(() => {
     const countdownInterval = setInterval(() => {
-      setCountdown((prevCountdown) => {
-        const newCountdown = prevCountdown > 0 ? prevCountdown - 1 : 0;
-        const countdownDate = new Date(newCountdown * 1000);
-        const days = Math.floor(newCountdown / (3600 * 24));
-        const hours = String(countdownDate.getUTCHours()).padStart(2, "0");
-        const minutes = String(countdownDate.getUTCMinutes()).padStart(2, "0");
-        const seconds = String(countdownDate.getUTCSeconds()).padStart(2, "0");
-        time = `${days}:${hours}:${minutes}:${seconds}`;
-        setTimeLeft(time);
-        return newCountdown;
-      });
+      const timeDifference = Math.floor((targetDateWIB.getTime() - Date.now()) / 1000);
+      setCountdown(timeDifference > 0 ? timeDifference : 0);
+      const { days, hours, minutes, seconds } = calculateTimeRemaining(timeDifference);
+      time = `${days}:${hours}:${minutes}:${seconds}`;
+      setTimeLeft(time);
     }, 1000);
 
     return () => clearInterval(countdownInterval);
-  }, []);
+  }, [setTimeLeft]);
 
   const { days, hours, minutes, seconds } = calculateTimeRemaining(countdown);
 
