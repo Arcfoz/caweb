@@ -22,8 +22,7 @@ const calculateTimeRemaining = (countdown: number): Countdown => {
 };
 
 const targetDateUTC = new Date("2023-10-29T11:59:59Z");
-const options = { timeZone: "Asia/Jakarta" };
-const targetDateWIB = new Date(targetDateUTC.toLocaleString("en-US", options));
+const targetDateWIB = new Date(targetDateUTC.getTime() + 7 * 60 * 60 * 1000);
 
 const Video: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
