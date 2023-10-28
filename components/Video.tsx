@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState, Suspense } from "react";
 import RegistrationButton from "./ui/registration-button";
 import Timer from "./Timer";
+import { preload } from "react-dom";
 
 const Video: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -24,7 +25,7 @@ const Video: React.FC = () => {
         }}
         className="hidden lg:block"
       >
-        <video autoPlay loop muted playsInline ref={videoRef} style={{ width: "100%", borderRadius: "12px" }}>
+        <video autoPlay loop muted playsInline ref={videoRef} style={{ width: "100%", borderRadius: "12px" }} preload="auto">
           <source src="/teaser.mp4" type="video/mp4" />
         </video>
       </div>
@@ -38,7 +39,7 @@ const Video: React.FC = () => {
         }}
         className="hidden md:block lg:hidden"
       >
-        <video autoPlay loop muted playsInline ref={videoRef} style={{ width: "100%", borderRadius: "12px" }}>
+        <video autoPlay loop muted playsInline ref={videoRef} style={{ width: "100%", borderRadius: "12px" }} preload="auto">
           <source src="/teaser.mp4" type="video/mp4" />
         </video>
       </div>
@@ -52,7 +53,7 @@ const Video: React.FC = () => {
         }}
         className="md:hidden"
       >
-        <video autoPlay loop muted playsInline ref={videoRef} style={{ width: "100%", borderRadius: "12px" }}>
+        <video autoPlay loop muted playsInline ref={videoRef} style={{ width: "100%", borderRadius: "12px" }} preload="auto">
           <source src="/teaser.mp4" type="video/mp4" />
         </video>
       </div>
