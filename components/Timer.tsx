@@ -20,7 +20,7 @@ const calculateTimeRemaining = (countdown: number): Countdown => {
 };
 
 const targetDateUTC = new Date("2023-10-29T11:59:59Z");
-const targetDateWIB = new Date(targetDateUTC.getTime() + 7 * 60 * 60 * 1000);
+const targetDateWIB = new Date(targetDateUTC.getTime() + 5 * 60 * 60 * 1000);
 
 const Timer = () => {
   const [countdown, setCountdown] = useState<number>(0);
@@ -28,6 +28,7 @@ const Timer = () => {
 
   useEffect(() => {
     const countdownInterval = setInterval(() => {
+      console.log(targetDateWIB);
       const timeDifference = Math.floor((targetDateWIB.getTime() - Date.now()) / 1000);
       setCountdown(timeDifference > 0 ? timeDifference : 0);
       const { days, hours, minutes, seconds } = calculateTimeRemaining(timeDifference);

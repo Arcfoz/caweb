@@ -1,4 +1,5 @@
 import { useGlobalContext } from "@/app/context/timeleft";
+import Image from "next/image";
 import React from "react";
 
 const slot = 1;
@@ -38,7 +39,7 @@ const RegistrationButton = () => {
       ) : (
         <>
           Register
-          <img src="./paperPlane.png" alt="telegram" className="w-6" />
+          <Image src="/paperPlane.png" alt="telegram" className="w-6" width={100} height={100} />
         </>
       )}
     </button>
