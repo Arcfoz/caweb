@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import Image from 'next/image';
 
 const Course = () => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -61,7 +62,7 @@ const Course = () => {
           link: "/https://drive.google.com/file/d/1M6pjWwbWkcviiFy3Ei-mrY2yckX3cDJS/view?usp=sharing",
         },
       ],
-      image: "./linux.png",
+      image: "/linux.png",
     },
     {
       title: "Modul 2",
@@ -70,7 +71,7 @@ const Course = () => {
       lessons: [
         { name: "Modul - Embedded System", link: "https://drive.google.com/file/d/1b4BlPcw5NKNue73DORwxPeR3-GGCe4Vb/view?usp=drive_link" }
       ],
-      image: "./Embedded.png",
+      image: "/Embedded.png",
     },
     {
       title: "Modul 3",
@@ -81,7 +82,7 @@ const Course = () => {
         { name: "Modul - Hands on", link: "https://drive.google.com/file/d/1BDO4riLQ-5aWYh3NqqCc-Z8UTEURtGEe/view?usp=drive_link" },
         { name: "Learning Web Design A Beginner’s Guide to HTML, CSS, JavaScript, and Web Graphics by Jennifer Niederst Robbins (z-lib.org)", link: "https://drive.google.com/file/d/1ECepQgqt1lCl9dE6M9L17_kI_KCvZaEg/view?usp=drive_link" },
       ],
-      image: "./webdev.png",
+      image: "/webdev.png",
     },
     {
       title: "Modul 4",
@@ -90,7 +91,7 @@ const Course = () => {
       lessons: [
         { name: "Modul - IoT Connectivity & Cloud Computing", link: "https://drive.google.com/file/d/1BNlmNmJUwQpNLf4vrLpxmMzhhREbl1bw/view?usp=drive_link" }
       ],
-      image: "./iot.png",
+      image: "/iot.png",
     },
   ];
   const headers = [
@@ -109,16 +110,17 @@ const Course = () => {
       </h1>
       <div className="flex flex-wrap gap-10 items-center justify-center md:gap-14 lg:gap-20 lg:mx-10 xl:mx-20">
         {modules.map((module, index) => (
-          <div>
             <div
               className="flex flex-col items-center group relative"
               key={index}
             >
               <div className="flex justify-between border border-gray-300 w-80 h-52 p-4 rounded-md xl:w-96 xl:h-60">
                 <div className="flex-grow self-center">
-                  <img
+                  <Image
                     src={module.image} // replace this with the actual path to your image
                     alt={module.title}
+                    width={100}
+                    height={100}
                     className="w-24 h-24 xl:w-32 xl:h-32" // add flex-grow
                   />
                 </div>
@@ -151,7 +153,6 @@ const Course = () => {
                 </div>
               </div>
             </div>
-          </div>
         ))}
       </div>
       {isModalOpen && currentModule && (
@@ -201,47 +202,3 @@ const Course = () => {
 };
 
 export default Course;
-
-{
-  /* <div className="flex flex-wrap gap-10 justify-center md:gap-14 lg:gap-20">
-    <div className="flex flex-col items-center">
-      <img
-        className="mask mask-squircle w-32 drop-shadow-xl md:w-40 lg:w-52"
-        src="/linux.png"
-        alt="linux"
-      />
-      <h1
-        className="text-center mt-4 font-viga font-regular text-[24px]"
-        style={{ color: "#231f20" }}
-      >
-        Linux
-      </h1>
-    </div>
-    <div className="flex flex-col items-center">
-      <img
-        className="mask mask-squircle w-32 drop-shadow-xl md:w-40 lg:w-52"
-        src="/iot.png"
-        alt="linux"
-      />
-      <h1
-        className="text-center mt-4 font-viga font-regular text-[24px]"
-        style={{ color: "#231f20" }}
-      >
-        IOT
-      </h1>
-    </div>
-    <div className="flex flex-col items-center">
-      <img
-        className="mask mask-squircle w-32 drop-shadow-xl md:w-40 lg:w-52"
-        src="/webdev.png"
-        alt="linux"
-      />
-      <h1
-        className="text-center mt-4 font-viga font-regular text-[24px]"
-        style={{ color: "#231f20" }}
-      >
-        WebDev
-      </h1>
-    </div>
-  </div> */
-}
